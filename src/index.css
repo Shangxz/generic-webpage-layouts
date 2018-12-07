@@ -1,4 +1,14 @@
-html,
+.navbar {
+  position: relative;
+  min-height: 50px;
+  /* margin-bottom: 20px; */
+  /* border: 1px solid transparent; */
+}
+
+
+
+
+/* html,
 body {
   height: 100%;
 }
@@ -26,6 +36,8 @@ body {
 .card-grid-view {
   display: flex;
   flex-wrap: wrap;
+  float: left;
+  
 
   margin-left: 7rem;
 }
@@ -82,4 +94,65 @@ body {
 .text-wrapper>.details {
   font-size: 0.8em;
   line-height: 1.7em;
+} */
+
+/* ul {
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  background-color: #beecea;
 }
+
+ul li {
+  display: inline-block;
+  padding: 1.25rem 3rem;
+  cursor: pointer;
+}
+
+ul li:hover,
+ul li.active {
+  background-color: #83dbd7;
+} */
+
+/* #text {
+  max-width: 1024px;
+  padding: 20px;
+  margin: auto;
+} */
+
+
+
+/* #nav {
+  width: 100%;
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+  list-style: none;
+}
+
+#nav li {
+  float: left;
+}
+
+#nav li a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #069;
+  border-right: 1px solid #ccc;
+}
+
+#nav li a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #069;
+  border-right: 1px solid #ccc;
+} */
+
+/* #wrapper {
+  float: left;
+  width: 1280px;
+} */

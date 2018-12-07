@@ -1,91 +1,99 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import styles from './sideBarMenu.css';
+import navbarstyles from './index.css'
 
-class Card extends React.Component {
-    constructor(props) {
-        super(props);
-
-        // Define inline styles
-        this.styles = { backgroundColor: props.data.color || '#000' };
-    }
-
+import {
+    Navbar,
+    Nav,
+    NavItem,
+    NavDropdown,
+    MenuItem,
+    Glyphicon
+} from 'react-bootstrap';
+class Navigationbar extends React.Component{
     render() {
-        const { title, icon, details } = this.props.data;
-
         return (
-            <div className="card-body" style={this.styles}>
-                <div className="icon-wrapper section">
-                    <span className="icon">
-                        <i className={icon} aria-hidden="true"></i>
-                    </span>
-                </div>
-                <div className="text-wrapper section">
-                    <div className="title"><span>{title}</span></div>
-                    <div className="details"><span>{details}</span></div>
-                </div>
+            <div id="topbar-menu">
+                <Navbar inverse collapseOnSelect style={{"marginBottom": "0px", "borderRadius": "0px", "border": "0px" }}>
+                <Navbar.Header>
+                    <Navbar.Brand>
+                    <a href="#brand">React-Bootstrap</a>
+                    </Navbar.Brand>
+                    <Navbar.Toggle />
+                </Navbar.Header>
+                <Navbar.Collapse>
+                    <Nav>
+                    <NavItem eventKey={1} href="#">
+                        Link
+                    </NavItem>
+                    <NavItem eventKey={2} href="#">
+                        Link
+                    </NavItem>
+                    <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+                        <MenuItem eventKey={3.1}>Action</MenuItem>
+                        <MenuItem eventKey={3.2}>Another action</MenuItem>
+                        <MenuItem eventKey={3.3}>Something else here</MenuItem>
+                        <MenuItem divider />
+                        <MenuItem eventKey={3.3}>Separated link</MenuItem>
+                    </NavDropdown>
+                    </Nav>
+                    <Nav pullRight>
+                    <NavItem eventKey={1} href="#">
+                        Link Right
+                    </NavItem>
+                    <NavItem eventKey={2} href="#">
+                        Link Right
+                    </NavItem>
+                    </Nav>
+                </Navbar.Collapse>
+                </Navbar>
+            </div>
+        );
+    }
+}
+
+class SideBar extends React.Component {
+    render() {
+        return (
+            <div id="sidebar-menu" className={styles.sideBarMenuContainer}>
+                <Navbar fluid className={styles.sidebar} inverse style={{"marginBottom": "0px", "borderRadius": "0px", "border": "0px" }} >
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <a href="/">User Name</a>
+                    </Navbar.Brand>
+                    <Navbar.Toggle />
+                </Navbar.Header>
+
+                <Navbar.Collapse>
+                    <Navbar.Text className={styles.userMenu}>
+                        <Navbar.Link href="#"><Glyphicon glyph="home"/></Navbar.Link>
+                        <Navbar.Link href="#"><Glyphicon glyph="log-out"/></Navbar.Link>
+                    </Navbar.Text>
+                    <Nav>
+                        <NavDropdown eventKey={1} title="Item 1" id="basic-nav-dropdown">
+                            <MenuItem eventKey={1.1} href="#">Item 1.1</MenuItem>
+                        </NavDropdown>
+                        <NavItem eventKey={2}>Item 2</NavItem>
+                        <NavItem eventKey={3}>Item 3</NavItem>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
             </div>
         )
     }
 }
-
-class CardGridView extends React.Component {
-    render() {
-        return (
-            <div className="card-grid-view">
-                {
-                    this.props.data.map((cardData, index) => (
-                        <Card data={cardData} key={"card-id-" + index} />
-                    ))
-                }
-            </div>
-        )
-    }
+class App extends React.Component {
+  render () {
+    return (
+        < div id="wrapper" >
+            < Navigationbar />
+            < SideBar />
+        </div>
+    )
+  }
 }
-
-// Placeholder dummy text details
-const TEXT_DATA = "Lorem ipsum dolor sit amet, elit. Pellentesque commodo quis enim quis rhoncus. Nunc consectetur adipiscing vel ullamcorper arcu.";
-
-// Static card data
-const CARD_DATA = [
-    {
-        'title': 'Typography',
-        'icon': 'fas fa-font',
-        'details': "I've studied Typography & Graphic Communication at possibly the best Institution to do so in the world - The University of Reading.",
-        'color': '#00274C'
-    },
-    {
-        'title': 'Responsive Web Design',
-        'icon': 'fas fa-magic',
-        'details': 'I design future proof mobile first reponsive websites to the latest web standards. I also keep up with the most recent best practices.',
-        'color': '#00274C'
-    },
-    {
-        'title': 'UX Design',
-        'icon': 'far fa-user',
-        'details': 'User Experience takes precedence throughout my entire process from research, through wireframes to design and development.',
-        'color': '#00274C'
-    },
-    {
-        'title': 'Interaction Design',
-        'icon': 'far fa-hand-paper',
-        'details': TEXT_DATA,
-        'color': '#dfbd42'
-    },
-    {
-        'title': 'Front-end Development',
-        'icon': 'fas fa-wrench',
-        'details': TEXT_DATA,
-        'color': '#d98e64'
-    },
-    {
-        'title': 'Wordpress',
-        'icon': 'far fa-edit',
-        'details': TEXT_DATA,
-        'color': '#de6bae'
-    }
-]
 
 ReactDOM.render(
-    <CardGridView data={CARD_DATA} />, document.getElementById('root')
+    <App />, document.getElementById('app')
 );
