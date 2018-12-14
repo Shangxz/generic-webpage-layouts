@@ -5,13 +5,11 @@
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
     "@trendmicro/react-sidenav": "^0.4.5",
-    "mdbreact": "^4.8.2",
     "react": "^16.6.0",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.3.11",
-    "react-scripts": "2.0.4",
-    "react-sidebar": "^3.0.2"
+    "react-scripts": "2.0.4"
   },
   "scripts": {
     "start": "webpack",
