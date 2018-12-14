@@ -5,6 +5,8 @@
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
     "@trendmicro/react-sidenav": "^0.4.5",
+    "preact": "^8.4.2",
+    "preact-compat": "^3.18.4",
     "react": "^16.6.0",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.5.2",
